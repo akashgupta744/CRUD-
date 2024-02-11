@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <title>retrive</title>
+</head>
+<body>
+    <center>
+        <h1 class="alert alert-primary">product information</h1>
+        {% if messages %}
+        {% for msg in messages %}
+            <span class="alert-danger">{{msg}}</span>
+            {% endfor%}
+        {% endif %}
+
+    <table class="table table-hover">
+        <thead>
+            <th>product id</th>
+            <th>product name</th>
+            <th>product price</th>
+            <th>product description</th>
+            <th>product image</th>
+            <th>operations</th>
+        </thead>
+
+        <tbody>
+           {% for ro in pro %}
+                <tr>
+                    <td>{{ro.pro_id}}</td>
+                    <td>{{ro.pro_name}}</td>
+                    <td>₹ {{ro.pro_price}}</td>
+                    <td>{{ro.pro_desc}}</td>
+                    <td><img src="{{ro.pro_img.url}}" alt="no img" height="100px" width="100px"></td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'update' ro.pro_id %}"><i class="fa-solid fa-pen-to-square"></i> </a>
+                        <a class="btn btn-danger" href="{% url 'delete' ro.pro_id %}"><i class="fa-solid fa-trash-can"></i></a>
+
+                    </td>
+                </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+    </center>
+</body>
+</html>
