@@ -50,3 +50,7 @@ def delete(request,id):
 # QuerySet [{'pro_id': 101, 'pro_name': 'pencil'}, {'pro_id': 102, 'pro_name': 'neon pen'}, {'pro_id': 103, 'pro_name': 'pen'}, {'pro_id': 104, 'pro_name': 'pen'}, {'pro_id': 105, 'pro_name': 'pens'}]>
 #  Product.objects.values_list('pro_id','pro_name')
 # QuerySet [(101, 'pencil'), (102, 'neon pen'), (103, 'pen'), (104, 'pen'), (105, 'pens')]>
+
+
+def product(request):
+    obj=Product(pro_id = 500, pro_name = 'pensil', pro_price = 20, pro_desc = 'nuchjsi mjzwe',pro_img)
